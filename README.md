@@ -29,7 +29,7 @@ Vous devriez voir une fenêtre de navigateur se lancer avec l'application. Grâc
 
 Afin de visualiser l'application que vous allez réaliser, vous trouverez ci-dessous un prototype interactif de Places :
 
-# [Prototype](https://invis.io/HC5MI0Z63)
+### [Lien du Prototype](https://invis.io/HC5MI0Z63)
 
 ### 1. Slides d'introduction
 
