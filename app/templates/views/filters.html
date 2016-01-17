@@ -1,0 +1,32 @@
+<ion-view view-title="Filters">
+    <ion-content>
+
+    	<!-- Type de lieu -->
+    	<label for="type">Type de lieu</label>
+    	<select ng-model="filters.type" id="type">
+			<option value="restaurant">Restaurant</option>
+			<option value="bar">Bar</option>
+			<option value="museum">Musée</option>
+			<option value="club">Club</option>
+		</select>
+
+		<!-- Tri par... -->
+    	<label for="sort">Trier la liste par</label>
+    	<select ng-model="filters.sort" id="sort">
+			<option value="date">Date</option>
+			<option value="rating">Note</option>
+		</select>
+
+		<!-- Ordre de tri -->
+    	<label for="orderBy">Ordre de tri</label>
+    	<select ng-model="filters.orderBy" id="orderBy">
+			<option value="asc">Croissant</option>
+			<option value="desc">Décroissant</option>
+		</select>
+		
+		<button on-tap="confirmFilters()">
+			Valider
+		</button>
+
+    </ion-content>
+</ion-view>

@@ -64,15 +64,15 @@ $ionicHistory.nextViewOptions({
 Injectez `$localstorage` et stockez une valeur `seenIntro` qui prendra pour valeur `true` au `tap` sur le bouton.
 
 **1.5 Dans la fonction `run` du `app.js`, vérifiez si l'utilisateur à déjà vu l'introduction. Si oui, redirigez le vers la homepage.**
-
+À l'aide d'un simple `if / else`, vérifiez si l'utilisateur à déjà vu les slides d'introductions. Si oui, redirigez le vers la homepage. Si non, redirigez-le vers les slides.
 
 ### 2. Style de la `HomePage`
 
-*Ressource nécessaire pour la question.*
-http://ionicframework.com/docs/api/directive/ionNavTitle/
-http://ionicframework.com/docs/components/#bar-inputs
+*Ressource nécessaire pour la question.*  
+http://ionicframework.com/docs/api/directive/ionNavTitle/  
+http://ionicframework.com/docs/components/#bar-inputs  
 
-*Mockups pour cette partie (`/mockups`)*
+*Mockups pour cette partie (`/mockups`)*  
 `homepage`
 
 **2.1 Style de la `navbar`**  
@@ -87,14 +87,14 @@ http://ionicframework.com/docs/components/#bar-inputs
 
 ### 3. Style de la page `Detail`
 
-*Ressource nécessaire pour la question.*
-http://ionicframework.com/docs/components/#grid
-http://ionicframework.com/docs/components/#range
-http://ionicframework.com/docs/components/#select
-http://ionicframework.com/docs/components/#forms-stacked-labels
-http://ionicframework.com/docs/api/service/$ionicActionSheet/
+*Ressource nécessaire pour la question.*  
+http://ionicframework.com/docs/components/#grid  
+http://ionicframework.com/docs/components/#range  
+http://ionicframework.com/docs/components/#select  
+http://ionicframework.com/docs/components/#forms-stacked-labels  
+http://ionicframework.com/docs/api/service/$ionicActionSheet/  
 
-*Mockups pour cette partie (`/mockups`)*
+*Mockups pour cette partie (`/mockups`)*  
 `details`, `details-overlay`
 
 
@@ -102,7 +102,7 @@ http://ionicframework.com/docs/api/service/$ionicActionSheet/
 À l'aide de votre propre `css` et des ressources ci-dessus, re-créez les éléments tels qu'ils sont représentés dans le mockup de la `details`.
 
 **3.2 ActionSheet et Navigation Mode**  
-Créez un `Action Sheet` tel que présenté dans le mockup `details-overlay`. Les boutons de l'overlay représenterons les différents mode de transports possible et le `tap` sur chacun d'entre eux changera l'icon présent dans la `navbar`, ainsi que le trajet :
+Créez un `Action Sheet` tel que présenté dans le mockup `details-overlay`. Les boutons de l'overlay représenterons les différents mode de transports possible et le `tap` sur chacun d'entre eux changera l'icon présent dans la `navbar`, ainsi que le trajet (pour cette question, vous aurez besoin de `ng-class`) :
 
 ```
 Walking : .ion-android-walk
@@ -116,26 +116,24 @@ Créez un effet de `Parallax` imitant le codepen suivant : `http://codepen.io/xA
 
 ### 4. Filtres
 
-*Ressource nécessaire pour la question.*
-http://ionicframework.com/docs/api/service/$ionicModal/
-http://ionicframework.com/docs/components/#select
-http://ionicframework.com/docs/components/#forms-stacked-labels
+*Ressource nécessaire pour la question.*  
+http://ionicframework.com/docs/api/service/$ionicModal/  
+http://ionicframework.com/docs/components/#select  
+http://ionicframework.com/docs/components/#forms-stacked-labels  
 
-*Pour cette partie, la logique des filters a déjà été créée dans le `filterController` et le template `filter`.*
+*Pour cette partie, la logique des filters a déjà été créée dans le `filterController` et le template `filter`.*  
 
 **4.1 Reproduisez le modal `filters` présenté dans `mockups/filters`**  
 
 
 ### 5. HomePage et Filtres
 
-*Ressource nécessaire pour la question.*
-http://ionicframework.com/docs/components/#grid
-http://ionicframework.com/docs/components/#range
-http://ionicframework.com/docs/components/#select
-http://ionicframework.com/docs/components/#forms-stacked-labels
-http://ionicframework.com/docs/api/service/$ionicActionSheet/
+*Ressource nécessaire pour la question.*  
+http://ionicframework.com/docs/components/#item-dividers  
 
 *Mockups pour cette partie (`/mockups`)*
-`homepage filtered`
+`homepage filtered`  
+
+**5.1 Reproduisez la page `mockups/homepage filtered`**  
 
 

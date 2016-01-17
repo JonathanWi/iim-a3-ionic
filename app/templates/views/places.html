@@ -1,0 +1,33 @@
+<ion-view view-title="Places">
+<!-- 
+	Bouton pour supprimer les places, à ne pas utiliser sans m'avoir appelé.
+
+	<ion-nav-buttons side="primary">
+      <button class="button button-icon icon ion-ios-minus-empty" on-tap="clearPlaces()"></button>
+    </ion-nav-buttons>  -->
+	<ion-nav-buttons side="secondary">
+      <button class="button button-icon icon ion-ios-plus-empty" on-tap="addPlace()"></button>
+    </ion-nav-buttons>
+    <ion-content>
+
+    	<!-- Barre de recherche -->
+    	<label class="item item-input">
+    		<input type="text" placeholder="Search" ng-model="search">
+		</label>
+
+		<!-- Bouton qui supprime les filtres (si des filtres ont étés appliqués) -->
+		<button ng-if="$storage.filters" on-tap="clearFilters()">Supprimer les filtres</button>
+
+		<!-- Liste des places -->
+    	<div class="list">
+		    <a on-hold="share(place.id)" ng-repeat="place in $storage.places | filter:search | filter:{type : $storage.filters.type} | orderBy: $storage.filters.computedOrder track by $index " class="item place item-thumbnail-left" ui-sref="app.place({id: place.id})">
+		      <img ng-src="{{place.img}}">
+		      <h2 class="title">{{place.name}}</h2>
+		      <p>{{place.street}}, {{place.city}}</p>
+		    </a>
+		</div>
+
+		<!-- Bouton pour accéder aux filtres -->
+		<a ui-sref="app.filters">Filtres</a>
+    </ion-content>
+</ion-view>

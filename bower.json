@@ -1,0 +1,20 @@
+{
+  "name": "Places",
+  "author": "Jonathan Widawski <jonathan_widaw@hotmail.com>",
+  "private": "true",
+  "devDependencies": {},
+  "dependencies": {
+    "ionic": "~1.1.0",
+    "angular": "~1.4.3",
+    "ngCordova": "~0.1.17-alpha",
+    "angular-resource": "~1.4.3",
+    "lodash": "~3.10.0",
+    "angular-timeago": "~0.2.4",
+    "ngstorage": "~0.3.10",
+    "angular-google-maps": "~2.2.1",
+    "ngmap": "~1.16.5"
+  },
+  "resolutions": {
+    "angular": "1.4.3"
+  }
+}

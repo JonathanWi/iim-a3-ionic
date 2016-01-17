@@ -1,0 +1,67 @@
+<ion-view view-title="{{place.name}}">
+    <ion-content>
+
+    	<!-- La carte -->
+    	<ng-map zoom="14" center="1135 Karamea-Kohaihai Rd, Kahurangi National Park, Tasman" style="height:90%" >
+		    <directions
+		      draggable="false"
+		      panel="directions-panel"
+		      travel-mode="{{travelMode}}"
+		      origin="{{currentLocation}}"
+		      destination="{{place.street}}, {{place.city}}, {{place.country}}">
+		    </directions>
+		 </ng-map>
+		
+		<!-- Affiche la distance  -->
+    	<h3>Distance : {{map.directionsRenderers[0].directions.routes[0].legs[0].distance.text}}</h3>
+		
+		<!-- Affiche la durée du trajet  -->
+    	<h3>Durée : {{map.directionsRenderers[0].directions.routes[0].legs[0].duration.text}}</h3>
+
+		<!-- Affiche les directions à prendre  -->
+		<button on-tap="displayDirections = !displayDirections">Afficher/Masquer les directions</button>
+    	<div id="directions-panel" ng-show="displayDirections" style="width: 100%; float:left; height: 100%; overflow: auto; padding: 0px 5px"></div>
+		
+		<!-- Permet de choisir le mode de transport  -->
+		<div>
+			<b>Mode de transport</b>
+	    	<select ng-model="travelMode" ng-init="travelMode='DRIVING'">
+	    		<option value="DRIVING">Driving</option>
+	    		<option value="WALKING">Walking</option>
+	    		<option value="BICYCLING">Bicycling</option>
+	    		<option value="TRANSIT">Transit</option>
+	    	</select>
+    	</div>
+
+    	<!-- Determine la note  -->
+    	<div>
+    		<label for="rating"><b>Note</b></label>
+    		<input type="range" id="rating" ng-model="place.rating" max="5" min="0" step="1">
+		</div>
+
+		<!-- Determine le type de lieu  -->
+		<div>
+    		<label for="type"><b>Type de lieu</b></label>
+    		<select ng-model="place.type" id="type">
+    			<option value="">Choisissez une valeur</option>
+    			<option value="restaurant">Restaurant</option>
+    			<option value="bar">Bar</option>
+    			<option value="museum">Musée</option>
+    			<option value="club">Club</option>
+    		</select>
+		</div>
+
+		<!-- Affiche/modifie le nom  -->
+    	<div>
+	    	<label for="name"><b>Nom</b></label>
+	    	<input type="text" id="name" placeholder="Nom du lieu..." ng-model="place.name">
+    	</div>
+
+    	<!-- Affiche/modifie la description  -->
+    	<div>
+	    	<label for="name"><b>Description</b></label>
+	    	<input type="text" id="name" placeholder="Pas encore de description..." ng-model="place.description">
+    	</div>
+    </ion-content>
+</ion-view>
+
