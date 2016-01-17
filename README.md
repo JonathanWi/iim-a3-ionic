@@ -72,7 +72,7 @@ Injectez `$localstorage` et stockez une valeur `seenIntro` qui prendra pour vale
 http://ionicframework.com/docs/api/directive/ionNavTitle/  
 http://ionicframework.com/docs/components/#bar-inputs  
 
-*Mockups pour cette partie (`/mockups`)*  
+*Mockups pour cette partie (`/mockups`)*    
 `homepage`
 
 **2.1 Style de la `navbar`**  
@@ -110,7 +110,7 @@ Driving : .ion-model-s
 Subway : .ion-android-train
 ```
 
-**3.3 Parallax de la map**
+**3.3 Parallax de la map**  
 Créez un effet de `Parallax` imitant le codepen suivant : `http://codepen.io/xAlien95/pen/QwGwOg`  
 
 
@@ -126,12 +126,12 @@ http://ionicframework.com/docs/components/#forms-stacked-labels
 **4.1 Reproduisez le modal `filters` présenté dans `mockups/filters`**  
 
 
-### 5. HomePage et Filtres
+### 5. HomePage et Filtres  
 
 *Ressource nécessaire pour la question.*  
 http://ionicframework.com/docs/components/#item-dividers  
 
-*Mockups pour cette partie (`/mockups`)*
+*Mockups pour cette partie (`/mockups`)*  
 `homepage filtered`  
 
 **5.1 Reproduisez la page `mockups/homepage filtered`**  
