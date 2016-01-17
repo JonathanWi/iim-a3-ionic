@@ -50,7 +50,7 @@ Comme pour l'exercice précédent, dans le `app.js` creéz une nouvelle route `i
 **1.3 Naviguez jusqu'à la Homepage**  
 Sur la 3ème slide — comme sur le mockup — ajoutez un [bouton](http://ionicframework.com/docs/components/#full-buttons) dont le tap (`on-tap`) déclenchera une fonction `$scope.goToHome()` dans le `introController`. Vous aurez besoin pour cette question d'injecter `$state` et d'utiliser `$state.go()` comme vu au cours précédent. 
 
-**1.3 Empêchez le retour sur les slides** 
+**1.3 Empêchez le retour sur les slides**  
 Si vous cliquez sur le bouton précédent, vous pouvez encore accéder aux slides. Afin d'éviter ce comportement, vous aurez besoin de `$ionicHistory` et du code suivant :
 
 ```
@@ -60,10 +60,10 @@ $ionicHistory.nextViewOptions({
 });
 ```
 
-**1.4 Stockez en `$localstorage` si l'utilisateur à déjà vu les slides d'introduction**
+**1.4 Stockez en `$localstorage` si l'utilisateur à déjà vu les slides d'introduction**  
 Injectez `$localstorage` et stockez une valeur `seenIntro` qui prendra pour valeur `true` au `tap` sur le bouton.
 
-**1.5 Dans la fonction `run` du `app.js`, vérifiez si l'utilisateur à déjà vu l'introduction. Si oui, redirigez le vers la homepage.**
+**1.5 Dans la fonction `run` du `app.js`, vérifiez si l'utilisateur à déjà vu l'introduction.**  
 À l'aide d'un simple `if / else`, vérifiez si l'utilisateur à déjà vu les slides d'introductions. Si oui, redirigez le vers la homepage. Si non, redirigez-le vers les slides.
 
 ### 2. Style de la `HomePage`
