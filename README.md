@@ -36,7 +36,7 @@ Afin de visualiser l'application que vous allez réaliser, vous trouverez ci-des
 *Ressource nécessaire pour cette partie.*  
 http://ionicframework.com/docs/api/directive/ionSlideBox/
 
-*Mockups pour cette partie (`/mockups`)*
+*Mockups pour cette partie (`/mockups`)*  
 `slide intro 1`, `slide intro 2`, `slide intro 3`
 
 Dans cette première partie, le but est d'afficher 3 slides d'introduction à l'utilisateur lors de sa première connexion.
@@ -98,7 +98,7 @@ http://ionicframework.com/docs/api/service/$ionicActionSheet/
 `details`, `details-overlay`
 
 
-**3.1 GeoLocation Service**  
+**3.1 Style de la page `details`**  
 À l'aide de votre propre `css` et des ressources ci-dessus, re-créez les éléments tels qu'ils sont représentés dans le mockup de la `details`.
 
 **3.2 ActionSheet et Navigation Mode**  
