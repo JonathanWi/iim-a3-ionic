@@ -137,3 +137,228 @@ http://ionicframework.com/docs/components/#item-dividers
 **5.1 Reproduisez la page `mockups/homepage filtered`**  
 
 
+### 6. Directives & Components 
+
+*Qu'est-ce qu'une directive?*  
+
+Au cours des dernières années, le web s'est transformé : D'un web de **page**, nous sommes passés a un web de **components**. Cette migration ouvre des possibilités infinies :
+
+- Un web plus `scalable` : En utilisant une logique de `blocs fonctionnels` (comprendre Lego), nous pouvons composer et décomposer des pages en déplaçant simplement nos components.
+- Un web plus `social` : Un component pouvant être ré-utilisé indépendamment de la logique de l'application dans laquelle il existe, le partage est simple et évident (millions de blocs partagés à travers le monde).
+- Un web plus `haut niveau` : Les développeurs n'ont plus besoin de ré-inventer la roue à chaque fois qu'ils démarrent un projet, et n'ont plus besoin de comprendre la logique derrière un component afin de s'en servir (ie. *Lorsque j'achète une lampe, je n'ai pas besoin de savoir comment fonctionne les circuits imprimés à l'intérieur, juste que le bouton `on` l'allume, et `off` l'éteint.*).
+
+**Angular et les components**  
+
+Angular implémente les components à sa manière et, sans le savoir, vous en avez déjà utilisé beaucoup :  
+`ng-repeat`, `ng-show`, `<ion-slide>`... 
+
+La liste est très longue, tout le système d'angular reposant sur ces briques élémentaires. Chez Angular, ces components s'appellent en réalité des `Directives`.
+
+**Comment s'écrit une directive ?**
+
+Tout comme pour les `controllers`, les `services` ou les `factories`, les `directives s'initialisent comme-suit :
+
+*sayHelloDirective.js*
+```
+ angular.module('Places')
+ .directive("sayhello", function () {
+ 	return {
+		// Ici le code de votre directive
+ 	}
+ });
+```
+
+**Paramètres de base d'une directive**  
+
+Une liste des propriétés des directives est accessible (ici)[https://docs.angularjs.org/guide/directive]. Pour cette exercice, nous ne verrons que les paramètres de base
+
+
+#### Restrict
+
+*sayHelloDirective.js*
+```
+ angular.module('Places')
+ .directive("sayhello", function () {
+ 	return {
+		restrict : 'E'
+ 	}
+ });
+```
+
+Le premier paramètre que nous verrons est restrict : `restrict` permet de définir le `type` de la directive. Il existe trois grand type de `restrict` :
+
+**E (pour Element)**  
+
+Les restricts de type E servent à déclarer que la directive sera un `element HTML`.
+
+*Dans le cas de la directive `sayhello` décrite ci-dessus, un restrict de type `E` s'écrit :*  
+
+```
+<sayhello></sayhello>
+```
+
+
+**A (pour Attribute)**  
+
+Les restricts de type A servent à déclarer que la directive sera un `attribut HTML`.
+
+*Dans le cas de la directive `sayhello` décrite ci-dessus, un restrict de type `A` s'écrit :*  
+
+```
+<div sayhello></div>
+```
+
+
+**C (pour Class)**  
+
+Les restricts de type A servent à déclarer que la directive sera une `classe HTML`.
+
+*Dans le cas de la directive `sayhello` décrite ci-dessus, un restrict de type `C` s'écrit :*  
+
+```
+<div class="sayhello"></div>
+```
+
+#### TemplateUrl
+
+*sayHelloDirective.js*
+```
+ angular.module('Places')
+ .directive("sayhello", function () {
+ 	return {
+		restrict : 'E',
+		templateUrl : 'template.html'
+ 	}
+ });
+```
+
+Le second paramètre que nous verrons est templateUrl : `templateUrl` permet de définir le `template` utilisé par la  directive.
+
+Prenons pour exemple ce `template.html`, associé à la directive décrite ci-dessus :
+
+*template.html*
+```
+<div>
+	<h2>Hello</h2>
+	<p>I'm a directive</p>
+</div>
+```
+
+Après avoir défini le template utilisé par ma directive, je peux dans une de mes vues appeler :
+
+*mavue.html*
+```
+<sayhello></sayhello>
+``` 
+
+qui sera alors remplacé par 
+
+*mavue.html*
+```
+<div>
+	<h2>Hello</h2>
+	<p>I'm a directive</p>
+</div>
+``` 
+
+#### scope
+
+Tout comme pour `$scope`, `scope` (attention, ici, pas de `$`) définit le **périmètre de la directive.** 
+
+*sayHelloDirective.js*
+```
+ angular.module('Places')
+ .directive("sayhello", function () {
+ 	return {
+		restrict : 'E',
+		templateUrl : 'template.html',
+		scope: {
+			name : 'Pierre'
+		}
+ 	}
+ });
+```
+
+Dans le template de ma directive, je peux donc maintenant faire :
+
+*template.html*
+```
+<div>
+	<h2>Hello</h2>
+	<p>I'm {{title}}</p>
+</div>
+``` 
+
+Ce qui, dans ma vue, affichera :
+
+*mavue.html*
+```
+<div>
+	<h2>Hello</h2>
+	<p>I'm Pierre</p>
+</div>
+``` 
+
+Mais évidemment, le `scope` ne s'arrête pas là : Il est temps de faire passer des données à notre directive. Avec Angular, nous pouvons faire la chose suivante :
+
+*sayHelloDirective.js*
+```
+ angular.module('Places')
+ .directive("sayhello", function () {
+ 	return {
+		restrict : 'E',
+		templateUrl : 'template.html',
+		scope: {
+			name : '@' // Ici, nous utilisons @, mais il existe d'autre méthode que nous n'aborderons pas.
+		}
+ 	}
+ });
+```
+
+Ici, `@` **lie la valeur de `name` à celle de `l'attribut HTML` de la directive**. Pour faire plus simple, je peux maintenant faire :
+
+
+*mavue.html*
+```
+<sayhello name="Jean"></sayhello>
+``` 
+
+qui m'affichera alors : 
+
+*mavue.html*
+```
+<div>
+	<h2>Hello</h2>
+	<p>I'm Jean</p>
+</div>
+```
+
+#### Finalement nous pouvons faire :
+
+*maVueController.js*
+```
+...
+$scope.name = 'Jacques';
+...
+``` 
+
+*mavue.html*
+```
+<sayhello name="{{name}}"></sayhello> // Ici name correspond au $scope.name définit plus haut
+``` 
+
+ce qui finalement affichera
+
+*mavue.html*
+```
+<div>
+	<h2>Hello</h2>
+	<p>I'm Jacques</p>
+</div>
+```
+
+
+#### Voilà, vous savez tout ce qu'il faut savoir sur les directives !
+
+
+**6.1 Transformer l'élément `place` en une directive `place`, qui prendra pour paramètre un title, un subtitle et une image.**
