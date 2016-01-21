@@ -13,7 +13,9 @@ angular.module('Places')
   	$scope.$storage = $localStorage.$default({
   		filters : {
   			sort: 'date',
-  			orderBy : 'asc'
+  			orderBy : 'asc',
+        type: undefined,
+        active: false
   		}
   	});
 
@@ -28,7 +30,7 @@ angular.module('Places')
 
     	// Compute sorting
     	$scope.$storage.filters.computedOrder = $scope.filters.orderBy === 'asc' ?  $scope.filters.sort : '-' + $scope.filters.sort;
-    	$state.go('app.places');
+    	$scope.$storage.filters.active = true;
     }
 
   });

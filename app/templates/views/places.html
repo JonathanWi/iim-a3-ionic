@@ -16,7 +16,7 @@
 		</label>
 
 		<!-- Bouton qui supprime les filtres (si des filtres ont étés appliqués) -->
-		<button ng-if="$storage.filters" on-tap="clearFilters()">Supprimer les filtres</button>
+		<button ng-if="$storage.filters.active" on-tap="clearFilters()">Supprimer les filtres</button>
 
 		<!-- Liste des places -->
     	<div class="list">
