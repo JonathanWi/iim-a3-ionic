@@ -25,7 +25,12 @@
 
   // Supprime les places en LocalStorage
   $scope.clearFilters = function() {
-    delete $scope.$storage.filters;
+    $scope.$storage.filters = {
+        sort: 'date',
+        orderBy : 'asc',
+        type: undefined,
+        active: false
+      }
   };
 
   // Fonction de partage
